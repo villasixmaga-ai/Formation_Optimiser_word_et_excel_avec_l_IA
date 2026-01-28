@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation : Optimiser Word et Excel avec l'IA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Calibri', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            color: #00536A;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #00536A 0%, #006d87 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .logo-container {
+            margin-bottom: 2rem;
+        }
+
+        .logo {
+            max-width: 300px;
+            height: auto;
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        header h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .accroche {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Sections */
+        section {
+            background: white;
+            margin: 2rem 0;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid #F7A916;
+            font-weight: 600;
+        }
+
+        /* Info pratiques */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .info-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #F7A916;
+        }
+
+        .info-card h3 {
+            color: #00536A;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .info-card p {
+            color: #555;
+            font-size: 1.05rem;
+        }
+
+        /* Accordéon Programme */
+        .accordion {
+            margin-top: 1.5rem;
+        }
+
+        .accordion-item {
+            background: white;
+            margin-bottom: 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            background: #00536A;
+            color: white;
+            padding: 1.2rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+            font-weight: 500;
+        }
+
+        .accordion-header:hover {
+            background: #006d87;
+        }
+
+        .accordion-header h3 {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .accordion-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+        }
+
+        .accordion-body {
+            padding: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .accordion-body strong {
+            color: #00536A;
+        }
+
+        /* Carte */
+        .map-container {
+            margin-top: 1.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        /* Boutons téléchargement */
+        .download-buttons {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: #00536A;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        .btn:hover {
+            background: #006d87;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: #F7A916;
+        }
+
+        .btn-secondary:hover {
+            background: #e09a0f;
+        }
+
+        /* Footer */
+        footer {
+            background: #00536A;
+            color: white;
+            padding: 2.5rem 2rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #F7A916;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: white;
+            text-decoration: none;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .footer-section a:hover {
+            color: #F7A916;
+        }
+
+        .handicap-notice {
+            background: rgba(247, 169, 22, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #F7A916;
+            margin-top: 1rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.95rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .accroche {
+                font-size: 1.1rem;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+            }
+
+            .download-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Visuel thématique */
+        .hero-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(0,83,106,0.9), rgba(247,169,22,0.8)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300"><rect fill="%2300536A" width="1200" height="300"/><path fill="%23F7A916" opacity="0.3" d="M0,100 Q300,50 600,100 T1200,100 L1200,300 L0,300 Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            padding: 2rem;
+        }
+
+        .hero-content h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="APF France handicap" class="logo">
+        </div>
+        <h1>Formation : Optimiser Word et Excel avec l'IA</h1>
+        <p class="accroche">Gagnez du temps et automatisez vos tâches administratives grâce à l'intelligence artificielle</p>
+    </header>
+
+    <!-- Container principal -->
+    <div class="container">
+        
+        <!-- Visuel thématique -->
+        <div class="hero-image">
+            <div class="hero-content">
+                <h2>🤖 Intelligence Artificielle + 💼 Bureautique</h2>
+                <p>Une journée pour transformer votre quotidien professionnel</p>
+            </div>
+        </div>
+
+        <!-- Informations pratiques -->
+        <section>
+            <h2>📅 Informations pratiques</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>📆 Date</h3>
+                    <p>Mercredi 29 janvier 2026</p>
+                </div>
+                <div class="info-card">
+                    <h3>🕐 Horaires</h3>
+                    <p>9h00 - 17h30 (journée complète)</p>
+                </div>
+                <div class="info-card">
+                    <h3>📍 Lieu</h3>
+                    <p>Grand Place<br>59000 Lille</p>
+                </div>
+                <div class="info-card">
+                    <h3>👥 Public</h3>
+                    <p>Employées administratives débutantes en IA</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Objectif -->
+        <section>
+            <h2>🎯 Objectif de la formation</h2>
+            <p style="font-size: 1.15rem; line-height: 1.8; margin-top: 1rem;">
+                À l'issue de cette formation, vous serez capable d'utiliser l'intelligence artificielle comme un outil d'assistance pour <strong>structurer vos documents Word</strong>, <strong>créer et comprendre des formules Excel</strong>, et <strong>exploiter différentes sources de données</strong> dans votre cadre professionnel.
+            </p>
+        </section>
+
+        <!-- Programme avec accordéon -->
+        <section>
+            <h2>📚 Programme détaillé</h2>
+            <div class="accordion">
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>🌅 9h00 - 9h30 : Accueil</h3>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <strong>Objectif :</strong> Présentation de la formation et des enjeux<br><br>
+                            Nous débuterons la journée par un tour de table pour faire connaissance et découvrir les attentes de chacune. Présentation du programme et du fonctionnement de l'IA dans le contexte administratif.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>📊 9h30 - 10h30 : Bases Word & Excel</h3>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <strong>Objectif :</strong> Identifier les fonctions de base et les types de données<br><br>
+                            Quiz interactif et atelier d'observation pour identifier vos pratiques actuelles avec Word et Excel. Reconnaissance des différentes sources de données que vous utilisez au quotidien (notes, PDF, tableaux, etc.).
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>☕ 10h30 - 11h00 : Pause</h3>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Moment de détente et d'échanges informels autour d'un café ou d'un thé.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>🤖 11h00 - 12h30 : Comprendre l'IA</h3>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <strong>Objectif :</strong> Comprendre comment l'IA transforme les données et automatise les tâches<br><br>
+                            Étude de cas pratique : transformation de notes manuscrites en document Word structuré grâce à l'IA. Découverte des prompts (consignes) efficaces pour dialoguer avec un agent IA. Mise en pratique avec des exemples concrets.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>🍽️ 12h30 - 13h30 : Déjeuner</h3>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Pause déjeuner (non fourni).
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>📈 13h30 - 15h30 : Excel avec l'IA</h3>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <strong>Objectif :</strong> Créer et comprendre des formules Excel adaptées à vos besoins<br><br>
+                            Atelier pratique intensif : vous formulez un besoin métier, l'IA génère la formule Excel correspondante, vous la testez et l'adaptez. Apprentissage pas-à-pas de la logique des formules. Correction d'erreurs courantes (#NOM?, #VALEUR!, etc.).
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>☕ 15h30 - 16h00 : Pause</h3>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Pause détente avant le sprint final.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>🚀 16h00 - 16h45 : Mise en pratique globale</h3>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <strong>Objectif :</strong> Exploiter plusieurs sources de données dans un mini-projet<br><br>
+                            Projet intégratif : vous recevez un dossier contenant plusieurs fichiers (Word, Excel, PDF, notes). Avec l'aide de l'IA, vous devez organiser, synthétiser et produire un document de synthèse ou un tableau de bord. Mise en situation réelle.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>✅ 16h45 - 17h30 : Évaluation et clôture</h3>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <strong>Objectif :</strong> Validation des acquis et plan d'action personnel<br><br>
+                            Quiz final pour mesurer les compétences acquises. Échanges sur les apprentissages de la journée. Élaboration de votre plan d'action personnel pour intégrer l'IA dans votre quotidien professionnel. Remise de la fiche pratique récapitulative.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Téléchargements -->
+        <section>
+            <h2>📥 Documents à télécharger</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Téléchargez les documents de la formation pour préparer votre journée :</p>
+            <div class="download-buttons">
+                <a href="programme.pdf" class="btn" download>
+                    📄 Télécharger le programme complet
+                </a>
+                <a href="livret-stagiaire.pdf" class="btn btn-secondary" download>
+                    📘 Télécharger le livret stagiaire
+                </a>
+            </div>
+        </section>
+
+        <!-- Localisation -->
+        <section>
+            <h2>📍 Localisation</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+                <strong>Adresse :</strong> Grand Place, 59000 Lille
+            </p>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2530.5633788457726!2d3.0601973!3d50.6365654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c2d579b3256e11%3A0x40af13e81646360!2sGrand%27Place%2C%2059000%20Lille!5e0!3m2!1sfr!2sfr!4v1234567890"
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>👤 Contact Formatrice</h3>
+                <p><strong>Alice</strong></p>
+                <p>📞 <a href="tel:0680523435">06 80 52 34 35</a></p>
+                <p>✉️ <a href="mailto:briaisa@apf.fr">briaisa@apf.fr</a></p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>♿ Accessibilité & Handicap</h3>
+                <div class="handicap-notice">
+                    <p>Pour toute demande d'adaptation liée à une situation de handicap, merci de contacter Alice.</p>
+                    <p style="margin-top: 0.5rem;"><strong>⚠️ Important :</strong> Le lieu de formation n'est pas équipé d'ascenseur.</p>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>ℹ️ À propos</h3>
+                <p>Cette formation est proposée par <strong>APF France handicap</strong>, association reconnue d'utilité publique.</p>
+                <p style="margin-top: 1rem;">
+                    <a href="https://www.apf-francehandicap.org" target="_blank">🌐 apf-francehandicap.org</a>
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 APF France handicap - Tous droits réservés | Risquer l'impossible</p>
+        </div>
+    </footer>
+
+    <!-- Script pour l'accordéon -->
+    <script>
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Fermer tous les autres items
+                document.querySelectorAll('.accordion-item').forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                });
+                
+                // Ouvrir l'item cliqué si il n'était pas actif
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Ouvrir le premier item par défaut
+        document.querySelector('.accordion-item').classList.add('active');
+    </script>
+</body>
+</html>
